@@ -40,11 +40,11 @@ function generateContent(names, eyesColors) {
   return content;
 }
 
-let names = readProps("src/names.txt");
-let eyesColors = readProps("src/eyes-colors.txt");
+let names = readProps("src/data/names.txt");
+let eyesColors = readProps("src/data/eyes-colors.txt");
 
 fs.writeFile(
-  "src/module-data.js",
+  "src/data/module-data.js",
   generateContent(names, eyesColors),
   (err) => {
     if (err) {
