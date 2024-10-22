@@ -23,16 +23,7 @@ function Lab1() {
   return (
     <div className="row px-5">
       {shuffledData.map((element) => (
-        <div className="col-4">
-          <div className="mb-4">
-            <PersonProfile
-              key={element.id}
-              name={element.name}
-              dateOfBirth={element.dateOfBirth}
-              eyesColor={element.eyesColor}
-            />
-          </div>
-        </div>
+        <PersonProfile key={element.id} person={element} columns="col-4" />
       ))}
     </div>
   );

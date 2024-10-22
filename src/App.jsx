@@ -12,7 +12,11 @@ function App() {
       <RootLayout menuItems={menuItems}>
         <Routes>
           {menuItems.map((item) => (
-            <Route path={item.urlPattern} element={item.element} />
+            <Route
+              path={item.urlPattern}
+              element={item.element}
+              key={item.id}
+            />
           ))}
           <Route path="/*" element={<NotFound></NotFound>} />
         </Routes>

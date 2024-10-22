@@ -34,12 +34,7 @@ function Lab2() {
         </Button>
       </div>
       {person ? (
-        <PersonProfile
-          key={person.id}
-          name={person.name}
-          dateOfBirth={person.dateOfBirth}
-          eyesColor={person.eyesColor}
-        />
+        <PersonProfile key={person.id} person={person} />
       ) : (
         <div>No person found for given id!</div>
       )}

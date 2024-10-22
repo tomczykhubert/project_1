@@ -22,6 +22,10 @@ function getRandomProp(props) {
   return props[~~((Math.random() * props.length) / 1)];
 }
 
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 function generateContent(names, eyesColors) {
   let content = "export const data = [";
 
@@ -32,6 +36,7 @@ function generateContent(names, eyesColors) {
         dateOfBirth: "${getRandomDate(new Date("1980-01-01"), new Date())}",
         name: "${getRandomProp(names)}",
         eyesColor: "${getRandomProp(eyesColors)}",
+        rating: ${getRandomNumber(0, 10)},
     },`;
   }
 
