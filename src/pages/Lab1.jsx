@@ -1,8 +1,11 @@
 import React from "react";
-import { data } from "../data/module-data.js";
 import PersonProfile from "../components/PersonProfile.jsx";
+import { useContext } from "react";
+import AppContext from "../data/AppContext.jsx";
 
 function Lab1() {
+  const context = useContext(AppContext);
+  const data = context.items;
   const shuffle = (array) => {
     let currentIndex = array.length;
     let randomIndex;

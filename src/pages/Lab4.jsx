@@ -4,7 +4,7 @@ import PersonProfile from "../components/PersonProfile.jsx";
 import { useContext } from "react";
 import AppContext from "../data/AppContext.jsx";
 
-function Lab3() {
+function Lab4() {
   const context = useContext(AppContext);
   const items = context.items;
 
@@ -18,4 +18,4 @@ function Lab3() {
   return <FlexContainer element={Item} data={items} />;
 }
 
-export default Lab3;
+export default Lab4;
