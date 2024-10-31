@@ -11,7 +11,7 @@ function Lab2() {
   const data = context.items;
   const { id } = useParams();
   const navigate = useNavigate();
-  let person = data[id - 1];
+  let person = data.find((item) => item.id == id);
   let newId = null;
 
   return (

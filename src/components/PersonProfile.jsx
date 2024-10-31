@@ -4,8 +4,9 @@ import { Card } from "react-bootstrap";
 import RatingBar from "./RatingBar";
 import { useContext } from "react";
 import AppContext from "../data/AppContext";
+import { Link } from "react-router-dom";
 
-function PersonProfile({ person, columns}) {
+function PersonProfile({ person, columns }) {
   const buttonClass = "btn btn-primary mx-1";
   const context = useContext(AppContext);
   const dispatch = context.dispatch;
@@ -19,17 +20,13 @@ function PersonProfile({ person, columns}) {
         <p>Rating: {person.rating}</p>
         <RatingBar rate={person.rating} />
         <div className="d-flex justify-content-center">
-          <button
+          <Link
             className={buttonClass}
-            onClick={() => {
-              dispatch({
-                type: "edit",
-                id: person.id,
-              });
-            }}
+            to="/lab4/edit"
+            state={{ id: person.id }}
           >
             Edit
-          </button>
+          </Link>
           <button
             className={buttonClass}
             onClick={() => {

@@ -1,7 +1,14 @@
+import { act } from "react";
+
 export default function AppReducer(state, action) {
   switch (action.type) {
+    case "add": {
+      return [...state, action.item];
+    }
     case "edit":
-      return state;
+      return state.map((item) =>
+        item.id === action.item.id ? action.item : item
+      );
     case "rate": {
       return state.map((item) =>
         item.id === action.id

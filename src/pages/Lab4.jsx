@@ -9,13 +9,13 @@ function Lab4() {
   const items = context.items;
 
   const Item = (person) => (
-    <PersonProfile
-      key={person.id}
-      person={person}
-      columns="col-4"
-    />
+    <PersonProfile key={person.id} person={person} columns="col-4" />
   );
-  return <FlexContainer element={Item} data={items} />;
+  return (
+    <>
+      <FlexContainer element={Item} data={items} />
+    </>
+  );
 }
 
 export default Lab4;

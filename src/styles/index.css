@@ -66,6 +66,9 @@ button:focus-visible {
 }
 
 .card {
-  background-color: darkcyan;
-  color: white;
+  box-shadow: 5px 5px 98px 0 rgba(166, 166, 166, 0.34);
+}
+
+.row {
+  --bs-gutter-x: 0;
 }
