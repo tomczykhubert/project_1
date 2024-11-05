@@ -5,14 +5,9 @@ import RootLayout from "./layouts/RootLayout.jsx";
 import { Routes, Route } from "react-router-dom";
 import { menuItems } from "./data/menu-items.jsx";
 import NotFound from "./pages/NotFound.jsx";
-import { useReducer } from "react";
-import AppReducer from "./data/AppReducer";
-import { data } from "./data/module-data.js";
-import AppContext from "./data/AppContext.jsx";
+import AppProvider from "./data/AppProvider.jsx";
 
 function App() {
-  const [state, appDispatch] = useReducer(AppReducer, data);
-
   function getRoutes(items) {
     return items.map((item) => (
       <Route path={item.urlPattern} element={item.element} key={item.id}>
@@ -22,20 +17,14 @@ function App() {
   }
   return (
     <>
-      <AppContext.Provider
-        value={{
-          items: state,
-          dispatch: appDispatch,
-          nextId: state.length,
-        }}
-      >
+      <AppProvider>
         <RootLayout menuItems={menuItems}>
           <Routes>
             {getRoutes(menuItems)}
             <Route path="/*" element={<NotFound></NotFound>} />
           </Routes>
         </RootLayout>
-      </AppContext.Provider>
+      </AppProvider>
     </>
   );
 }

@@ -5,6 +5,10 @@ import Lab3 from "../pages/Lab3.jsx";
 import Lab4 from "../pages/Lab4.jsx";
 import AddPersonForm from "../components/AddPersonForm.jsx";
 import EditPersonForm from "../components/EditPersonForm.jsx";
+import Lab5 from "../pages/Lab5.jsx";
+import UserProfile from "../components/UserProfile.jsx";
+import Post from "../components/Post.jsx";
+
 export const menuItems = [
   {
     id: 1,
@@ -58,6 +62,26 @@ export const menuItems = [
     id: 7,
     urlPattern: "/lab4/edit",
     element: <EditPersonForm />,
+    inNavbar: false,
+  },
+  {
+    id: 8,
+    label: "Laboratorium 5",
+    url: "/lab5",
+    urlPattern: "/lab5",
+    element: <Lab5 />,
+    inNavbar: true,
+  },
+  {
+    id: 9,
+    urlPattern: "/lab5/users/:id",
+    element: <UserProfile />,
+    inNavbar: false,
+  },
+  {
+    id: 10,
+    urlPattern: "lab5/posts/:id/comments",
+    element: <Post />,
     inNavbar: false,
   },
 ];

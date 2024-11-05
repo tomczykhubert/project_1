@@ -3,12 +3,10 @@ import { useParams } from "react-router-dom";
 import PersonProfile from "../components/PersonProfile.jsx";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useContext } from "react";
-import AppContext from "../data/AppContext.jsx";
+import useData from "../data/functions/useData";
 
 function Lab2() {
-  const context = useContext(AppContext);
-  const data = context.items;
+  const data = useData();
   const { id } = useParams();
   const navigate = useNavigate();
   let person = data.find((item) => item.id == id);

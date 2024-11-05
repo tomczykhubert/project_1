@@ -1,15 +1,11 @@
-import React from "react";
-import { useState } from "react";
 import { Card } from "react-bootstrap";
 import RatingBar from "./RatingBar";
-import { useContext } from "react";
-import AppContext from "../data/AppContext";
 import { Link } from "react-router-dom";
+import useDispatch from "../data/functions/useDispatch";
 
 function PersonProfile({ person, columns }) {
   const buttonClass = "btn btn-primary mx-1";
-  const context = useContext(AppContext);
-  const dispatch = context.dispatch;
+  const dispatch = useDispatch();
 
   return (
     <div className={columns}>

@@ -1,16 +1,16 @@
-import { Button, Container, Form, FormControl } from "react-bootstrap";
+import { Button, Form, FormControl } from "react-bootstrap";
 import { useState } from "react";
-import { useContext } from "react";
-import AppContext from "../data/AppContext";
 import BackButton from "./BackButton";
+import useDispatch from "../data/functions/useDispatch";
+import useNextId from "../data/functions/useNextId";
 
 const eyesColorField = "eyesColor";
 const nameField = "name";
 const dateOfBirthField = "date";
 
 function AddPersonForm() {
-  const context = useContext(AppContext);
-  const dispatch = context.dispatch;
+  const dispatch = useDispatch();
+  let nextId = useNextId();
   const [error, setError] = useState("");
   const [isSendig, setSending] = useState(false);
   const [success, setSuccess] = useState("");
@@ -25,8 +25,7 @@ function AddPersonForm() {
       return;
     }
 
-    const newId = context.nextId + 1;
-
+    const newId = nextId;
     const item = {
       id: newId,
       name: data.get(nameField),
@@ -39,7 +38,7 @@ function AddPersonForm() {
       type: "add",
       item: item,
     });
-    context.nextId = newId;
+    nextId = newId;
     setSending(true);
     await new Promise((resolve) => setTimeout(resolve, 1000)); //symulacja wysyłania
     setSending(false);
