@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../data/functions/useFetch";
 import { Table } from "react-bootstrap";
+import { ClipLoader } from "react-spinners";
+
 function Post() {
   const { id } = useParams();
   const {
@@ -17,7 +19,8 @@ function Post() {
 
   const isLoading = postLoading || commentsLoading;
   const hasError = postError || commentsError;
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading)
+    return <ClipLoader color="#0d6efd" size={100} speedMultiplier="2" />;
   if (hasError) return <p>Error loading data.</p>;
   return (
     <div className="mx-5 text-start">

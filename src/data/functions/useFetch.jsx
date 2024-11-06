@@ -23,6 +23,7 @@ function useFetch(url) {
         setLoading(false);
       });
   }, [url]);
+  setTimeout(1000);
 
   return { data, loading, error };
 }

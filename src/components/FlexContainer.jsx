@@ -1,4 +1,3 @@
-import React from "react";
 import useData from "../data/functions/useData";
 function FlexContainer({ element }) {
   const data = useData();

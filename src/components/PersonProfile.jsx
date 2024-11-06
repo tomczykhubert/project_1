@@ -16,11 +16,7 @@ function PersonProfile({ person, columns }) {
         <p>Rating: {person.rating}</p>
         <RatingBar rate={person.rating} />
         <div className="d-flex justify-content-center">
-          <Link
-            className={buttonClass}
-            to="/lab4/edit"
-            state={{ id: person.id }}
-          >
+          <Link className={buttonClass} to={`/lab4/edit/${person.id}`}>
             Edit
           </Link>
           <button

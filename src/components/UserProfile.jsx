@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../data/functions/useFetch";
 import { Card } from "react-bootstrap";
+import { ClipLoader } from "react-spinners";
+
 function UserProfile() {
   const { id } = useParams();
   const {
@@ -10,7 +12,8 @@ function UserProfile() {
   } = useFetch(`https://jsonplaceholder.typicode.com/users/${id}`);
   const isLoading = userLoading;
   const hasError = userError;
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading)
+    return <ClipLoader color="#0d6efd" size={100} speedMultiplier="2" />;
   if (hasError) return <p>Error loading data.</p>;
   return (
     <Card className="m-auto w-50">

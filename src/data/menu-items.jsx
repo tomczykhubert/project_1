@@ -60,7 +60,7 @@ export const menuItems = [
   },
   {
     id: 7,
-    urlPattern: "/lab4/edit",
+    urlPattern: "/lab4/edit/:id",
     element: <EditPersonForm />,
     inNavbar: false,
   },

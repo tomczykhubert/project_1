@@ -1,35 +1,33 @@
-import React from "react";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
-import AppContext from "../data/AppContext";
-import { Button, Container, Form, FormControl, Nav } from "react-bootstrap";
+import { Button, Form, FormControl } from "react-bootstrap";
 import BackButton from "./BackButton";
-import { useLocation, Navigate } from "react-router-dom";
-
+import useDispatch from "../data/functions/useDispatch";
+import useData from "../data/functions/useData";
+import { useParams } from "react-router-dom";
+import NotFound from "../pages/NotFound";
 function EditPersonForm() {
-  const location = useLocation();
-  if (location.state?.id == null) {
-    return <Navigate to="/lab4" />;
-  }
-
-  const context = useContext(AppContext);
-  const dispatch = context.dispatch;
-  const id = location.state.id;
-  const person = context.items.find((item) => item.id == id);
+  const data = useData();
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const person = data.find((item) => item.id == id);
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitSuccessful, isSubmitting },
-  } = useForm({
-    defaultValues: {
-      id: person.id,
-      name: person.name,
-      eyesColor: person.eyesColor,
-      dateOfBirth: person.dateOfBirth,
-      rating: person.rating,
-    },
-  });
+  } = useForm(
+    person
+      ? {
+          defaultValues: {
+            id: person.id,
+            name: person.name,
+            eyesColor: person.eyesColor,
+            dateOfBirth: person.dateOfBirth,
+            rating: person.rating,
+          },
+        }
+      : {}
+  );
 
   const onSubmit = (data) => {
     const item = {
@@ -44,7 +42,9 @@ function EditPersonForm() {
       item: item,
     });
   };
-
+  if (person == null) {
+    return <NotFound />;
+  }
   return (
     <>
       <div className="w-50 mx-auto mt-5 card">
@@ -134,7 +134,6 @@ function EditPersonForm() {
             </Button>
             <BackButton
               className="btn btn-lg btn-outline-danger col-5"
-              variant="outline-primary"
               size="lg"
             />
           </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import PersonProfile from "../components/PersonProfile.jsx";
 import useData from "../data/functions/useData";
 

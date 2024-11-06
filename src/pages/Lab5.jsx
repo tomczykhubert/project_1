@@ -5,6 +5,7 @@ import { useReducer, useEffect, useState } from "react";
 import TableDataReducer from "../data/TableDataReducer";
 import Accordion from "react-bootstrap/Accordion";
 import { NavLink } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 function Lab5() {
   const {
@@ -41,7 +42,8 @@ function Lab5() {
     }
   }, [isLoading, hasError, posts, users, comments]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading)
+    return <ClipLoader color="#0d6efd" size={100} speedMultiplier="2" />;
   if (hasError) return <p>Error loading data.</p>;
   return (
     <div className="mx-5">

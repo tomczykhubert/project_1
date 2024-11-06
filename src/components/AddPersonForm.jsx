@@ -111,7 +111,6 @@ function AddPersonForm() {
             </Button>
             <BackButton
               className="btn btn-lg btn-outline-danger col-5"
-              variant="outline-primary"
               size="lg"
             />
           </div>
