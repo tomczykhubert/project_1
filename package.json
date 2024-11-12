@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "src/data/module-data-generator.cjs 12 && vite",
+    "dev": "run-script-os",
+    "dev:win32": "src\\data\\module-data-generator.cjs 12 && vite",,
+    "dev:macos": "src/data/module-data-generator.cjs 12 && vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
